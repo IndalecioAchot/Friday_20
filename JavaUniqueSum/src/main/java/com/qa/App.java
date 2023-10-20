@@ -10,7 +10,10 @@ public class App
 {
     public static void main ( String[] args )
     {
+        ArrayList<Integer> numList = takingInput();
+        int sum = uniqueSum(numList);
 
+        System.out.println(sum);
     }
 
 //    Writing a method to check if a string can be converted into an integer
@@ -26,7 +29,7 @@ public class App
             return false;
         }
     }
-    public static void takingInput( )
+    private static ArrayList<Integer> takingInput( )
     {
 //     Initialising the Scanner instance
         Scanner scanner = new Scanner(System.in);
@@ -47,10 +50,26 @@ public class App
         int int2 = Integer.parseInt(numbers[1]);
         int int3 = Integer.parseInt(numbers[2]);
 
-//        Putting integers into an integer array
-        List<Integer> list = new ArrayList<Integer>();
-        int outNumbers;
-        outNumbers = list.get(int1);
+        ArrayList<Integer> outNums = new ArrayList<>();
+        outNums.add(int1);
+        outNums.add(int2);
+        outNums.add(int3);
 
+        return outNums;
+    }
+
+    private static int uniqueSum(ArrayList<Integer> outNums)
+    {
+//        get the distinct numbers from arraylist
+        ArrayList<Integer> distinctNums = new ArrayList<>();
+        int sum = 0;
+        for (int i : outNums) {
+            if (!distinctNums.contains(i)) {
+                distinctNums.add(i);
+                sum += i;
+            }
+        }
+
+        return sum;
     }
 }
