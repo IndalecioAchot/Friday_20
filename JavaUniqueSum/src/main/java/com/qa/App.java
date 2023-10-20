@@ -69,7 +69,6 @@ public class App
                 sum += i;
             }
         }
-
         return sum;
     }
 }
